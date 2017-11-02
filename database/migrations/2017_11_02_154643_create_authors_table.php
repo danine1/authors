@@ -15,9 +15,13 @@ class CreateAuthorsTable extends Migration
     {
         Schema::create('authors', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name', 255)->nullable();
+            $table->integer('year_of_birth')->unsigned()->nullable();
             $table->timestamps();
         });
     }
+
+    /*unsigned means cannot be a negative value */
 
     /**
      * Reverse the migrations.
